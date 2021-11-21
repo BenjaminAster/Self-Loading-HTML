@@ -1,0 +1,54 @@
+
+
+/* <link rel="stylesheet" href="."> */
+
+{ ` } /* <!-- */
+	html {
+		background: black;
+	}
+
+	body {
+		font-family: sans-serif;
+		color: white;
+	}
+/* --> */ { ` }
+
+/* <!--
+<main>
+	<h2>Hello World!</h2>
+
+	<p>This is a paragraph.</p>
+</main> 
+--> */
+
+/* <pre></pre> */
+
+/* <script src="."></script> */
+
+// <!--
+
+	{
+		// //document.querySelector("body > *:not(main)")
+		// //console.log(document.querySelector("body > *:not(main)"));
+		// //console.log(document.body.children);
+		// const iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_TEXT);
+		// let textnode;
+		// while(textnode = iterator.nextNode()) {
+		// 	//if(textnode.parentElement.tagName === "BODY") {
+		// 		console.log(textnode);
+		// 		textnode.remove();
+		// 	//}
+		// }
+		// console.log(iterator.nextNode());
+
+		(async () => {
+			document.body.textContent = "";
+			const pre = document.createElement("pre");
+			pre.textContent = await (await window.fetch(".")).text();
+			document.body.appendChild(pre);
+		})();
+	}
+
+// -->
+
+// 
