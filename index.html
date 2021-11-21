@@ -3,25 +3,24 @@
 /* <link rel="stylesheet" href="."> */
 
 { ` } /* <!-- */
-	html {
-		background: black;
+	:root {
+		color-scheme: dark;
 	}
 
 	body {
 		font-family: sans-serif;
 		color: white;
+		background-color: black;
 	}
 /* --> */ { ` }
 
-/* <!--
+/*
 <main>
 	<h2>Hello World!</h2>
 
 	<p>This is a paragraph.</p>
 </main> 
---> */
-
-/* <pre></pre> */
+*/
 
 /* <script src="."></script> */
 
@@ -41,11 +40,15 @@
 		// }
 		// console.log(iterator.nextNode());
 
+		window.addEventListener("load", (evt) => {
+			[...document.body.childNodes].filter(({nodeName}) => nodeName === "#text").forEach((node) => node.remove());
+		});
+
 		(async () => {
-			document.body.textContent = "";
-			const pre = document.createElement("pre");
-			pre.textContent = await (await window.fetch(".")).text();
-			document.body.appendChild(pre);
+			//document.body.textContent = "";
+			//const pre = document.createElement("pre");
+			//pre.textContent = await (await window.fetch(".")).text();
+			//document.body.appendChild(pre);
 		})();
 	}
 
