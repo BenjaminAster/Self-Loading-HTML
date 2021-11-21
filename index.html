@@ -1,57 +1,47 @@
 
+/* <meta charset="UTF-8" /> */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */
+/* <meta name="color-scheme" content="dark" /> */
 
-/* <link rel="stylesheet" href="."> */
+/* <link rel="stylesheet" href="." type="text/css" /> */
+/* <script src="." type="application/javascript"></script> */
+
+/* <title>Self-loading HTML</title> */
 
 { ` } /* <!-- */
-	:root {
-		color-scheme: dark;
+	body {
+		font-family: system-ui;
+		color: white;
+		background-color: #111;
 	}
 
-	body {
-		font-family: sans-serif;
-		color: white;
-		background-color: black;
+	code {
+		background-color: #222;
+		color: #eee;
+		padding: 0 .3em;
+		border: 1px solid #444;
+		border-radius: 0.2em;
 	}
 /* --> */ { ` }
 
 /*
 <main>
-	<h2>Hello World!</h2>
+	<h2>Self-loading HTML</h2>
 
-	<p>This is a paragraph.</p>
+	<p>
+		The CSS and JavaScript of this page are the page itself. 
+		This means that the HTML file is also the CSS file and the JavaScript file, all in one.
+	</p>
+	<p>
+		A <code>&lt;link rel="stylesheet" href="."&gt;</code> and a <code>&lt;script src="."&gt;&lt;/script&gt;</code> are used to load the CSS and JavaScript.
+	</p>
 </main> 
 */
 
-/* <script src="."></script> */
+// /* <!--
 
-// <!--
+window.addEventListener("load", (evt) => {
+	[...document.body.childNodes].filter(({nodeName}) => nodeName === "#text").forEach((node) => node.remove());
+});
 
-	{
-		// //document.querySelector("body > *:not(main)")
-		// //console.log(document.querySelector("body > *:not(main)"));
-		// //console.log(document.body.children);
-		// const iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_TEXT);
-		// let textnode;
-		// while(textnode = iterator.nextNode()) {
-		// 	//if(textnode.parentElement.tagName === "BODY") {
-		// 		console.log(textnode);
-		// 		textnode.remove();
-		// 	//}
-		// }
-		// console.log(iterator.nextNode());
-
-		window.addEventListener("load", (evt) => {
-			[...document.body.childNodes].filter(({nodeName}) => nodeName === "#text").forEach((node) => node.remove());
-		});
-
-		(async () => {
-			//document.body.textContent = "";
-			//const pre = document.createElement("pre");
-			//pre.textContent = await (await window.fetch(".")).text();
-			//document.body.appendChild(pre);
-		})();
-	}
-
-// -->
-
-// 
+// */ -->
